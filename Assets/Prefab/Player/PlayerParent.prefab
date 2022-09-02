@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dbd3acc928b6f344962304b94273e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 50
   jumpForce: 10
   gravity: -20
   horizontalspeed: -10
