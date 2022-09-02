@@ -13,10 +13,15 @@ public class AnimationPlayer : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (Input.GetKey(KeyCode.UpArrow))
+    if (Input.GetKeyDown(KeyCode.UpArrow))
 
     {
       PLayer.GetComponent<Animator>().Play("Jump");
+    }
+    if (Input.GetKeyDown(KeyCode.DownArrow))
+
+    {
+      PLayer.GetComponent<Animator>().Play("Roll");
     }
   }
 }
