@@ -22,11 +22,18 @@ public class GameManager : MonoBehaviour
     }
   }
 
+
+
   public int Score = 0;
 
   public int Lives = 3;
 
   public List<string> inventory = new List<string>();
+
+
+
+
+
 
   private void Awake()
   {
