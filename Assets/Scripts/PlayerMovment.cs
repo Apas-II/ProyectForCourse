@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class PlayerMovment : MonoBehaviour
 {
   /// Variables 
@@ -14,7 +14,7 @@ public class PlayerMovment : MonoBehaviour
   [SerializeField]
   private float horizontalspeed = -20f;
   private Rigidbody myrigidbody;
-
+  private Animator myAnimator;
   // Upadates
 
 
@@ -22,20 +22,23 @@ public class PlayerMovment : MonoBehaviour
   {
     myrigidbody = GetComponent<Rigidbody>();
     myCharacterController = GetComponent<CharacterController>();
-
+    myAnimator = GetComponent<Animator>();
   }
 
   private void Update()
   {
     direction.z = speed;
-    if (myCharacterController.isGrounded)
+
+
+
+
+    if (Input.GetKeyDown(KeyCode.UpArrow))
     {
-
-
-      if (Input.GetKeyDown(KeyCode.UpArrow))
+      if (myCharacterController.isGrounded)
       {
 
         Jump();
+        myAnimator.Play("Jump");
       }
     }
     else
@@ -44,8 +47,16 @@ public class PlayerMovment : MonoBehaviour
 
     }
 
+    if (Input.GetKeyDown(KeyCode.DownArrow))
+      if (myCharacterController.isGrounded)
+      {
+        {
+          myAnimator.Play("Roll");
+        }
 
 
+
+      }
     if (Input.GetKey(KeyCode.RightArrow))
     {
       MovePlayer(Vector3.left);
@@ -56,6 +67,7 @@ public class PlayerMovment : MonoBehaviour
       MovePlayer(Vector3.right);
 
     }
+
 
     if (Input.GetKey(KeyCode.P))
     {
@@ -89,7 +101,11 @@ public class PlayerMovment : MonoBehaviour
 
   }
 
+  private void Roll()
+  {
 
+
+  }
   private void MovePlayer(Vector3 direction)
   {
 
