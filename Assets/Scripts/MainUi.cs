@@ -8,4 +8,11 @@ public class MainUi : MonoBehaviour
 
 
   public void NextScene() => SceneManager.LoadScene("Level 1");
+
+
+
+  private void onDeadtext()
+  {
+
+  }
 }

@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class GameManager : MonoBehaviour
 {
   private static GameManager instance;
 
-
+  public event Action onDead;
 
   public static GameManager Instance
 
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
   public int Score = 0;
 
-  public int Lives = 3;
+  public int Lives = 1;
 
   public List<string> inventory = new List<string>();
 
