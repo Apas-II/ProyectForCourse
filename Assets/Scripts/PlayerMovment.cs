@@ -39,6 +39,8 @@ public class PlayerMovment : MonoBehaviour
 
         Jump();
         myAnimator.Play("Jump");
+
+
       }
     }
     else

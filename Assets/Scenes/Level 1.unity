@@ -171,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d17e1ec8e10b9f94e92a0feb28a09485, type: 3}
       propertyPath: m_LocalScale.y
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d17e1ec8e10b9f94e92a0feb28a09485, type: 3}
       propertyPath: m_LocalScale.z
@@ -2191,7 +2191,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2332861813427305680, guid: d17e1ec8e10b9f94e92a0feb28a09485, type: 3}
 --- !u!33 &172774939247168219
