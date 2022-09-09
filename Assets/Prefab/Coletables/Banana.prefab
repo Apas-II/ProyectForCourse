@@ -126,6 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4942672314094239723}
   - component: {fileID: 1908884036}
+  - component: {fileID: 6310067019841847248}
   m_Layer: 0
   m_Name: Banana
   m_TagString: Coletables
@@ -162,3 +163,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.23898217, z: 0.43749064}
   m_Center: {x: 0, y: 0.1405089, z: -0.008924693}
+--- !u!114 &6310067019841847248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7208183295586282088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cab821dc1223db4b8fdcaccaac84803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Dataobject: {fileID: 11400000, guid: a2f992a7889be024e8602a095ef424bc, type: 2}

@@ -38,6 +38,8 @@ public class PlayerMovment : MonoBehaviour
       {
 
         Jump();
+
+        //myAnimator.SetBool("isJumping", true);
         myAnimator.Play("Jump");
 
 
