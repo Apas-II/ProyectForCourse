@@ -1,5 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
+
+
+// CON ESTE SCRIPT MUEVO EL PJ, SETEO LAS ANIMACIONES Y ADECUO EL COLIDDER A LAS ANIMACIONES//
+
 public class PlayerMovment : MonoBehaviour
 {
   /// Variables 
@@ -23,6 +27,7 @@ public class PlayerMovment : MonoBehaviour
     myrigidbody = GetComponent<Rigidbody>();
     myCharacterController = GetComponent<CharacterController>();
     myAnimator = GetComponent<Animator>();
+
   }
 
   private void Update()
@@ -31,16 +36,14 @@ public class PlayerMovment : MonoBehaviour
 
 
 
-
     if (Input.GetKeyDown(KeyCode.UpArrow))
     {
       if (myCharacterController.isGrounded)
       {
 
-        Jump();
 
-        //myAnimator.SetBool("isJumping", true);
-        myAnimator.Play("Jump");
+        Jump();
+        myAnimator.SetBool("isJumping", true);
 
 
       }
@@ -48,19 +51,27 @@ public class PlayerMovment : MonoBehaviour
     else
     {
       direction.y += gravity * Time.deltaTime;
+      myAnimator.SetBool("isJumping", false);
 
     }
 
     if (Input.GetKeyDown(KeyCode.DownArrow))
+    {
       if (myCharacterController.isGrounded)
       {
         {
-          myAnimator.Play("Roll");
+          myAnimator.SetBool("isRolling", true);
+
         }
-
-
-
       }
+
+    }
+    else
+    {
+      myAnimator.SetBool("isRolling", false);
+    }
+
+
     if (Input.GetKey(KeyCode.RightArrow))
     {
       MovePlayer(Vector3.left);
