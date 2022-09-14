@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coletables
   - Lives
+  - PlanetoFall
   layers:
   - Default
   - TransparentFX
