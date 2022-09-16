@@ -6,8 +6,6 @@ public class GameManager : MonoBehaviour
 {
   private static GameManager instance;
 
-  public event Action onDead;
-
   public static GameManager Instance
 
 
@@ -28,6 +26,8 @@ public class GameManager : MonoBehaviour
 
   public int Lives = 1;
 
+  public int Time = 0;
+
   public List<string> inventory = new List<string>();
 
 
@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
   {
     instance = this;
   }
+
+
 
 
 }

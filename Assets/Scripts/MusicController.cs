@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class MusicController : MonoBehaviour
 {
+  [SerializeField]
+  private MusicController[] MusicClips;
+
+
   public static MusicController instance;
 
   private void Awake()

@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+using System.Collections;
 
 // CON ESTE SCRIPT MUEVO EL PJ, SETEO LAS ANIMACIONES Y ADECUO EL COLIDDER A LAS ANIMACIONES//
 
@@ -19,6 +19,8 @@ public class PlayerMovment : MonoBehaviour
   private float horizontalspeed = -20f;
   private Rigidbody myrigidbody;
   private Animator myAnimator;
+  [SerializeField]
+  private bool isRuningBool = false;
   // Upadates
 
 
@@ -27,8 +29,10 @@ public class PlayerMovment : MonoBehaviour
     myrigidbody = GetComponent<Rigidbody>();
     myCharacterController = GetComponent<CharacterController>();
     myAnimator = GetComponent<Animator>();
-
+    StartCoroutine(Countdown(3));
   }
+
+
 
   private void Update()
   {
@@ -55,6 +59,7 @@ public class PlayerMovment : MonoBehaviour
 
     }
 
+
     if (Input.GetKeyDown(KeyCode.DownArrow))
     {
       if (myCharacterController.isGrounded)
@@ -70,6 +75,8 @@ public class PlayerMovment : MonoBehaviour
     {
       myAnimator.SetBool("isRolling", false);
     }
+
+
 
 
     if (Input.GetKey(KeyCode.RightArrow))
@@ -110,24 +117,56 @@ public class PlayerMovment : MonoBehaviour
 
   private void FixedUpdate()
   {
-    myCharacterController.Move(direction * Time.fixedDeltaTime);
+    if (isRuningBool == true)
+    {
+      myCharacterController.Move(direction * Time.fixedDeltaTime);
 
-    myrigidbody.Sleep();
-
+      myrigidbody.Sleep();
+    }
   }
 
-  private void Roll()
-  {
 
-
-  }
   private void MovePlayer(Vector3 direction)
   {
 
+    if (isRuningBool == true)
+    {
 
-    myCharacterController.Move(direction * horizontalspeed * Time.deltaTime);
+      myCharacterController.Move(direction * horizontalspeed * Time.deltaTime);
+
+    }
+  }
+
+
+
+  public void onVictory()
+  {
+
+    isRuningBool = false;
+    myAnimator.Play("Victory");
 
 
   }
+
+
+  IEnumerator Countdown(int seconds)
+  {
+    int count = seconds;
+
+    while (count > 0)
+    {
+
+      // display something...
+      yield return new WaitForSeconds(1.4f);
+      count--;
+    }
+    myAnimator.SetFloat("isCrowching", 3f);
+    isRuningBool = true;
+
+  }
+
+
+  // tengo que parar la animacion de  runing. para que el pj quede quito y haga la animacion de victoria.
+
 
 }
