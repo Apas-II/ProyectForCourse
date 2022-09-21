@@ -14,8 +14,8 @@ public class VictoryTrigger : MonoBehaviour
     if (other.CompareTag("Player"))
     {
 
-
       myTriggerVictory.Invoke();
+      Debug.Log("emisor " + this.name); //esto se va
 
     }
 

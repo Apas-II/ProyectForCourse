@@ -95,11 +95,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4456592011284387206}
   - component: {fileID: 13305017494628567}
-  - component: {fileID: 3073255872040761228}
+  - component: {fileID: 4172188074996889981}
   m_Layer: 0
   m_Name: FinishLine
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 778828693514489718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 4}
+  m_LocalScale: {x: 30, y: 15, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7725081923080431745}
@@ -127,12 +127,12 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778828693514489718}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9472786, y: 0.5343181, z: 0.059295654}
-  m_Center: {x: 0.2770973, y: 0.27431569, z: 0.9694824}
---- !u!114 &3073255872040761228
+  m_Size: {x: 1, y: 1, z: 0}
+  m_Center: {x: 0.5, y: 0, z: 3}
+--- !u!114 &4172188074996889981
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,16 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 public class PlayerColitions : MonoBehaviour
 
 {
 
+  [SerializeField] private UnityEvent onHit;
+  [SerializeField] private UnityEvent onDead;
 
-  public event Action onDead;
+  void Start()
+  {
 
 
-  public Dictionary<string, int> InventoryDictionary = new Dictionary<string, int>()
+
+  }
+
+
+
+
+
+
+  public Dictionary<string, int> InventoryDictionary = new Dictionary<string, int>() // esto se va
   {
     {"Banana", 0},
     {"Manzana", 0}
@@ -20,7 +32,7 @@ public class PlayerColitions : MonoBehaviour
 
 
 
-
+  /// COLISIONESSSS ///
   private void OnCollisionEnter(Collision other)
   {
 
@@ -29,20 +41,20 @@ public class PlayerColitions : MonoBehaviour
       ;
       Destroy(other.gameObject);
       GameManager.Instance.Score++;
-      GameManager.Instance.inventory.Add(other.gameObject.name);
+      GameManager.Instance.inventory.Add(other.gameObject.name); // eso se va
 
 
-      if (InventoryDictionary.ContainsKey(other.gameObject.name))
+      if (InventoryDictionary.ContainsKey(other.gameObject.name)) //esto se vaa
       {
-        Debug.Log(InventoryDictionary[other.gameObject.name]);
-        InventoryDictionary[other.gameObject.name] += 1;
+        Debug.Log(InventoryDictionary[other.gameObject.name]); //esto se va
+        InventoryDictionary[other.gameObject.name] += 1; // esto se vaa
 
         // aca profe. no puedo hacer que se sumen los Values de las Key. 
 
       };
 
 
-      Debug.Log(InventoryDictionary["Manzana"]);
+      Debug.Log(InventoryDictionary["Manzana"]); // esto se va 
     }
 
     if (other.collider.CompareTag("Lives"))
@@ -53,16 +65,21 @@ public class PlayerColitions : MonoBehaviour
 
     }
 
+
+
+    // condiciones de hit y de derrota
     if (other.collider.CompareTag("Obstacles") || other.collider.CompareTag("Enemys") || other.collider.CompareTag("PlanetoFall"))
     {
 
-
+      onHit.Invoke();
       GameManager.Instance.Lives--;
+      Debug.Log("emisor " + this.name); //esto se va
 
 
       if (GameManager.Instance.Lives == 0)
       {
-        //condicion de  derrota
+        onDead.Invoke();
+        Debug.Log("emisor " + this.name); //esto se va
       }
 
     }

@@ -2,14 +2,14 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
-// CON ESTE SCRIPT MUEVO EL PJ, SETEO LAS ANIMACIONES Y ADECUO EL COLIDDER A LAS ANIMACIONES//
+
 
 public class PlayerMovment : MonoBehaviour
 {
   /// Variables 
   private Vector3 direction;
   [SerializeField]
-  private float speed = 7.0f;
+  private float speed = 12f;
   private CharacterController myCharacterController;
   [SerializeField]
   private float jumpForce = 10f;
@@ -91,18 +91,18 @@ public class PlayerMovment : MonoBehaviour
     }
 
 
-    if (Input.GetKey(KeyCode.P))
+    if (Input.GetKey(KeyCode.P)) //esto se va
     {
       deletearinventario();
 
     }
 
-
+    Debug.Log(isRuningBool);
   }
 
   // Metodos
 
-  private void deletearinventario()
+  private void deletearinventario() //esto se va
   {
 
     GameManager.Instance.inventory.Clear();
@@ -122,6 +122,7 @@ public class PlayerMovment : MonoBehaviour
       myCharacterController.Move(direction * Time.fixedDeltaTime);
 
       myrigidbody.Sleep();
+
     }
   }
 
@@ -138,12 +139,20 @@ public class PlayerMovment : MonoBehaviour
   }
 
 
-
-  public void onVictory()
+  public void onHitManagger()
   {
 
     isRuningBool = false;
+    myAnimator.Play("Death"); //porque no funciona estoooooooo y si funciona el play de la animacion de Victory.
+    Debug.Log("observador " + this.name); //esto se va
+  }
+
+
+  public void onVictory()
+  {
     myAnimator.Play("Victory");
+    isRuningBool = false;
+    Debug.Log("observador " + this.name); //esto se va
 
 
   }
@@ -156,7 +165,7 @@ public class PlayerMovment : MonoBehaviour
     while (count > 0)
     {
 
-      // display something...
+
       yield return new WaitForSeconds(1.4f);
       count--;
     }
@@ -166,7 +175,12 @@ public class PlayerMovment : MonoBehaviour
   }
 
 
+
+
   // tengo que parar la animacion de  runing. para que el pj quede quito y haga la animacion de victoria.
 
 
 }
+
+// arreglar el isRuningBool. ponerlo como un parametro del animator?
+
