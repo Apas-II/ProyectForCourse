@@ -90,24 +90,10 @@ public class PlayerMovment : MonoBehaviour
 
     }
 
-
-    if (Input.GetKey(KeyCode.P)) //esto se va
-    {
-      deletearinventario();
-
-    }
-
-    Debug.Log(isRuningBool);
   }
 
   // Metodos
 
-  private void deletearinventario() //esto se va
-  {
-
-    GameManager.Instance.inventory.Clear();
-
-  }
 
 
   private void Jump()
@@ -141,10 +127,9 @@ public class PlayerMovment : MonoBehaviour
 
   public void onHitManagger()
   {
-
     isRuningBool = false;
-    myAnimator.Play("Death"); //porque no funciona estoooooooo y si funciona el play de la animacion de Victory.
-    Debug.Log("observador " + this.name); //esto se va
+    Knockback();
+    myAnimator.Play("Death");
   }
 
 
@@ -152,7 +137,7 @@ public class PlayerMovment : MonoBehaviour
   {
     myAnimator.Play("Victory");
     isRuningBool = false;
-    Debug.Log("observador " + this.name); //esto se va
+
 
 
   }
@@ -175,6 +160,12 @@ public class PlayerMovment : MonoBehaviour
   }
 
 
+  private void Knockback()
+  {
+
+
+
+  }
 
 
   // tengo que parar la animacion de  runing. para que el pj quede quito y haga la animacion de victoria.

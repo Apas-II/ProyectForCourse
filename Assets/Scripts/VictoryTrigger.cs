@@ -15,7 +15,6 @@ public class VictoryTrigger : MonoBehaviour
     {
 
       myTriggerVictory.Invoke();
-      Debug.Log("emisor " + this.name); //esto se va
 
     }
 

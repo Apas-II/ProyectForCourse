@@ -8,7 +8,7 @@ public class GameoverManagerUi : MonoBehaviour
   {
 
     this.gameObject.SetActive(true);
-    Debug.Log("observador " + this.name);
+
   }
 
 

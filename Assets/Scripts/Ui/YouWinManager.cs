@@ -9,7 +9,7 @@ public class YouWinManager : MonoBehaviour
   {
 
     this.gameObject.SetActive(true);
-    Debug.Log("observador " + this.name);
+
 
   }
 

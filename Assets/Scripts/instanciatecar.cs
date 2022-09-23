@@ -32,7 +32,7 @@ public class instanciatecar : MonoBehaviour
 
 
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * 40, Color.green);
-        Debug.Log(" le pegue");
+
       }
     }
 

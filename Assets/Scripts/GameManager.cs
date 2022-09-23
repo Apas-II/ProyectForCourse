@@ -26,9 +26,8 @@ public class GameManager : MonoBehaviour
 
   public int Lives = 1;
 
-  public int Time = 0;
 
-  public List<string> inventory = new List<string>();
+
 
 
 
