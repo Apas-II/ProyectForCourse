@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ActiveDamagePP : MonoBehaviour
 {
-
+  public GameObject damageLayer;
   public void activeDamagePP()
   {
-    this.gameObject.SetActive(true);
+    damageLayer.SetActive(true);
     StartCoroutine(CountdownDamage());
   }
 
@@ -17,7 +17,7 @@ public class ActiveDamagePP : MonoBehaviour
 
 
     yield return new WaitForSeconds(0.1f);
-    this.gameObject.SetActive(false);
+    damageLayer.SetActive(false);
 
 
 

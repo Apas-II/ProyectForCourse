@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/LandingMenu.unity
     guid: c3d2db7188767ae4db8953b042dd223c
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
+    path: Assets/Scenes/RaceScene.unity
     guid: 0ae7d28296f2ac9449d9ec7d3ac83fde
+  - enabled: 1
+    path: Assets/Scenes/ForestScene.unity
+    guid: 509764854be34d245b28d92d8a396808
+  - enabled: 1
+    path: Assets/Scenes/SpaceScene.unity
+    guid: 1f98f677fb9418f4cb7021c056e79411
   m_configObjects: {}

@@ -7,12 +7,13 @@ public class MainUi : MonoBehaviour
 {
 
 
-  public void NextScene() => SceneManager.LoadScene("Level 1");
+  public void RaceScene() => SceneManager.LoadScene("RaceScene");
+
+  public void ForestScene() => SceneManager.LoadScene("ForestScene");
+
+  public void SpaceScene() => SceneManager.LoadScene("SpaceScene");
 
 
+  public void ExitMainUi() => Application.Quit();
 
-  private void onDeadtext()
-  {
-
-  }
 }

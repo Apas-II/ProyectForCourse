@@ -27,6 +27,7 @@ public class instanciatecar : MonoBehaviour
         foreach (var i in Auto)
         {
           i.SetActive(true);
+
         };
 
 

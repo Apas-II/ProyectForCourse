@@ -6,7 +6,7 @@ using System.Collections;
 
 public class PlayerMovment : MonoBehaviour
 {
-  /// Variables 
+  /// VARIABLES ///
   private Vector3 direction;
   [SerializeField]
   private float speed = 12f;
@@ -21,7 +21,9 @@ public class PlayerMovment : MonoBehaviour
   private Animator myAnimator;
   [SerializeField]
   private bool isRuningBool = false;
-  // Upadates
+  private bool isDeadanim = false;
+  private bool isKnockBackAllow = false;
+  /// Upadates ///
 
 
   void Start()
@@ -90,9 +92,20 @@ public class PlayerMovment : MonoBehaviour
 
     }
 
+    if (isDeadanim == true)
+    {
+      if (isKnockBackAllow == false)
+      {
+        Knockback();
+      }
+    }
+
   }
 
-  // Metodos
+
+
+
+  /// METODOS ///
 
 
 
@@ -101,18 +114,20 @@ public class PlayerMovment : MonoBehaviour
     direction.y = jumpForce;
   }
 
+
+
+  // Movimiento hacia adelante
   private void FixedUpdate()
   {
     if (isRuningBool == true)
     {
       myCharacterController.Move(direction * Time.fixedDeltaTime);
 
-      myrigidbody.Sleep();
 
     }
   }
 
-
+  // Movimiento a los costados
   private void MovePlayer(Vector3 direction)
   {
 
@@ -128,8 +143,10 @@ public class PlayerMovment : MonoBehaviour
   public void onHitManagger()
   {
     isRuningBool = false;
-    Knockback();
+    isDeadanim = true;
+
     myAnimator.Play("Death");
+    StartCoroutine(CountDownKnockBack());
   }
 
 
@@ -137,12 +154,14 @@ public class PlayerMovment : MonoBehaviour
   {
     myAnimator.Play("Victory");
     isRuningBool = false;
+    isKnockBackAllow = true;
 
 
 
   }
 
 
+  // Corutina del cominezo del juego. Idle
   IEnumerator Countdown(int seconds)
   {
     int count = seconds;
@@ -156,17 +175,29 @@ public class PlayerMovment : MonoBehaviour
     }
     myAnimator.SetFloat("isCrowching", 3f);
     isRuningBool = true;
+    isDeadanim = false;
 
   }
+
 
 
   private void Knockback()
   {
 
+    myCharacterController.Move(Vector3.back * Time.deltaTime * 3);
+  }
+
+  // corutina para que espere el tiempo de la animacion de hit y se active otra vez el isRuningBool
+  IEnumerator CountDownKnockBack()
+  {
+
+
+    yield return new WaitForSeconds(3f);
+    isRuningBool = true;
+
 
 
   }
-
 
   // tengo que parar la animacion de  runing. para que el pj quede quito y haga la animacion de victoria.
 
@@ -175,3 +206,8 @@ public class PlayerMovment : MonoBehaviour
 
 // arreglar el isRuningBool. ponerlo como un parametro del animator?
 
+
+// agregar una variable bool  y despues hacer el death animation y el transform en el Update dependiende ese true or false. el KnockBack?
+
+// hacer menu UI con tres niveles y un Exit game. Hacer un pause menu con un continue y un back to menu. 
+// si gameover, back to menu. 

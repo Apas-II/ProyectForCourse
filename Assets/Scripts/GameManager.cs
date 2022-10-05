@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
   public int Score = 0;
 
-  public int Lives = 1;
+  public int Lives = 3;
 
 
 

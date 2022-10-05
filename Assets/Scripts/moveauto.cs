@@ -26,6 +26,7 @@ public class moveauto : MonoBehaviour
   protected void move()
   {
     transform.position = transform.position + direction * Time.deltaTime * speed;
+
   }
 
 
